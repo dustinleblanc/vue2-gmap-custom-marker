@@ -12,7 +12,9 @@ export default {
   props: ['marker', 'onClick'],
   watch: {
     marker: function (val) {
-      this.$overlay.draw();
+      this.$mapPromise.then(function (map) {
+        this.$overlay.draw();
+      });
     },
   },
   provide: function () {
